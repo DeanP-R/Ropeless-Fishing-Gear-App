@@ -14,14 +14,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.MEngProject"
+      "bundleIdentifier": "com.anonymous.ropeless-fishing-gear-app"
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
       "permissions": "android.permission.DETECT_SCREEN_CAPTURE",
-      "package": "com.anonymous.MEngProject"
+      "package": "com.anonymous.ropeless-fishing-gear-app"
     },
     "extra": {
       "eas": {
