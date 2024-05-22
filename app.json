@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ropeless-fishing-gear-app",
+    "name": "Ropeless Fishing Gear App",
     "slug": "ropeless-fishing-gear-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -25,7 +25,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "5c09b77b-3c49-4880-a046-55a9097cee98"
+        "projectId": "a2a705c5-fa40-456b-9053-74290681cb77"
       }
     },
     "runtimeVersion": "1.0.0",
