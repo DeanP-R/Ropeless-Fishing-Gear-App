@@ -1,50 +1,87 @@
-# Welcome to your Expo app 👋
+# Ropeless Fishing Gear App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Overview
+The Ropeless Fishing Gear App is designed to help manage and control your fishing traps using Bluetooth-enabled nanomodems. This guide will walk you through the steps to use the app effectively.
 
-## Get started
+## App Usage 
 
-1. Install dependencies
+### 1. Ensure Bluetooth is Enabled
+Make sure that Bluetooth is enabled on your mobile device.
 
-   ```bash
-   npm install
-   ```
+### 2. Power Up the Nanomodem
+Power up the nanomodem. Your mobile device should connect to it automatically via Bluetooth.
 
-2. Start the app
+### 3. Add a New Trap
+Select the add button located at the bottom of the control panel to add a new trap. Ensure that the ID you enter matches the address on your physical trap.
 
-   ```bash
-    npx expo start
-   ```
+### 4. View and Select the Trap
+Once a new trap has been added, you should be able to view and select it from the control panel.
 
-In the output, you'll find options to open the app in a
+### 5. Release / Set Your Trap
+Select the desired trap from the control panel and press the circular blue button to perform the desired operation.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 6. Monitor the Trap Status
+Monitor the state of your physical trap and confirm the success or failure of the operation. The status of your trap will be updated accordingly within the app.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Development Guide
 
-## Get a fresh project
+### Project Setup
+- Ensure `package.json` and `app.json` are correctly configured.
+- Verify project directory structure.
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+### Cleaning and Reinstalling Dependencies
 ```
+# Remove and reinstall node modules
+rm -rf node_modules
+npm install
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Remove and reinstall pods (from the ios directory)
+cd ios
+rm -rf Pods
+pod install --repo-update
+cd ..
+```
+## Starting Metro Bundler
+```
+# Clear Metro Bundler cache and start it
+npx expo start --clear
+#npx expo start --dev-client
+```
+## Building and Running the App
+```
+# Rebuild and run the app on your device
+npx expo run:ios --device
+```
+## Configuration Details
+Info.plist
+Add necessary usage descriptions for accessing privacy-sensitive data:
+```
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>This app uses Bluetooth to connect to devices.</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string>This app uses Bluetooth to connect to devices.</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>This app uses your location to provide location-based features.</string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string>This app uses your location to provide location-based features even when the app is in the background.</string>
+```
+## Expo.plist
 
-## Learn more
+Ensure EXUpdatesURL and EXUpdatesSDKVersion are correctly set:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>EXUpdatesSDKVersion</key>
+    <string>50.0.0</string>
+    <key>EXUpdatesURL</key>
+    <string>https://u.expo.dev/a2a705c5-fa40-456b-9053-74290681cb77</string>
+</dict>
+</plist>
+```
+## Tips
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+    Ensure Info.plist and Expo.plist are Correctly Configured:
+        Add necessary usage descriptions for accessing privacy-sensitive data like Bluetooth and Location services.
+    Use viewDidAppear for presenting view controllers to ensure the view hierarchy is set up.
