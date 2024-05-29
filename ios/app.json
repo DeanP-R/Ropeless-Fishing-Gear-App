@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Ropeless Fishing Gear App",
+    "slug": "RopelessFishingGearApp",
+    "version": "1.0.0",
+    "sdkVersion": "50.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.deanp-r.RopelessFishingGearApp"
+    }
+  }
+}
